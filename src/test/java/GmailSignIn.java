@@ -36,11 +36,11 @@ public class GmailSignIn {
     driver.findElement(By.xpath("//span[@class='RveJvd snByac']")).click();
 
     String text = driver.findElement(By.cssSelector("[id=name]")).getText();
-    Assert.assertTrue(text.contains("সাইন-ইন করা যায়নি"));
+    Assert.assertTrue(text.contains("Try Again"));
 }
     @After
     public void finishTest () {
-        driver.close();
+//        driver.close();
     }
 
 }
