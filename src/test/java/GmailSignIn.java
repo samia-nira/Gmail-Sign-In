@@ -5,9 +5,12 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class GmailSignIn {
@@ -35,8 +38,9 @@ public class GmailSignIn {
     Thread.sleep(4000);
     driver.findElement(By.xpath("//span[@class='RveJvd snByac']")).click();
 
-    String text = driver.findElement(By.cssSelector("[id=name]")).getText();
-    Assert.assertTrue(text.contains("Try Again"));
+    String text = driver.findElement(By.xpath("//span[contains(text(),'এই ব্রাউজার অথবা অ্যাপ নিরাপদ নাও হতে পারে।')]")).getText();
+    Assert.assertTrue(text.contains("এই ব্রাউজার অথবা অ্যাপ নিরাপদ নাও হতে পারে।" +
+            ""));
 }
     @After
     public void finishTest () {
